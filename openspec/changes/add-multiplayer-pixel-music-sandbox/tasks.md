@@ -28,7 +28,7 @@ The user authorized implementation, repository creation, backend/game releases, 
 ## 4. Release the compatible backend before client integration
 
 - [x] 4.1 Under apply/release authorization, commit and push only scoped backend work on default main and use its actual Release workflow; verify staged music probe and existing-game checks before promotion and record resulting tag, client tarball and WSS URL.
-- [ ] 4.2 Verify the stable public backend with two music clients beyond ten minutes and across a renewal boundary; document proven continuity or keep public delivery blocked with the exact hosting prerequisite, without broad unrelated hosting changes.
+- [x] 4.2 Verify the stable public backend with two music clients beyond ten minutes and across a renewal boundary; document proven continuity or keep public delivery blocked with the exact hosting prerequisite, without broad unrelated hosting changes.
 - [x] 4.3 Synchronize backend release-generated commits and pin the exact verified client tarball in the game lockfile; verify package installation and keep local/public URL configuration credential-free in a documented .env.example.
 
 ## 5. Implement host simulation and scheduled audio
