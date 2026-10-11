@@ -7,7 +7,7 @@ async page => {
  for(const c of browser.contexts())if(c!==page.context()&&c.pages().some(p=>/client=(flow-|third|fourth|fifth)/.test(p.url())))await c.close();
  const h=await browser.newContext({viewport:{width:1280,height:720}}),g=await browser.newContext({viewport:{width:1280,height:720}}),host=await h.newPage(),guest=await g.newPage();
  await host.goto(base+'?test=1&mute=true&client=flow-host',{waitUntil:'domcontentloaded'});await host.getByRole('button',{name:'Create room →'}).click();await host.waitForFunction(()=>window.__musicDebug?.status==='connected');
- const code=await host.evaluate(()=>window.__musicDebug.code);await guest.goto(base+'?test=1&mute=true&client=flow-guest&room='+code,{waitUntil:'domcontentloaded'});await guest.getByRole('button',{name:'Enable sound'}).click();await guest.waitForFunction(()=>window.__musicDebug?.playback.active);
+ const code=await host.evaluate(()=>window.__musicDebug.code);await guest.goto(base+'?test=1&mute=true&client=flow-guest&room='+code,{waitUntil:'domcontentloaded'});await guest.getByRole('button',{name:'Enable sound'}).click();await guest.waitForFunction(()=>window.__musicDebug?.playback?.active);
  const hostId=await host.evaluate(()=>window.__musicDebug.playback.id);
  const run=(
 '@

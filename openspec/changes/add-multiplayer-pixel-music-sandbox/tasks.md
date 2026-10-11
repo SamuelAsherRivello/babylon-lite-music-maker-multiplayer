@@ -55,6 +55,6 @@ The user authorized implementation, repository creation, backend/game releases, 
 ## 8. Deliver the verified build
 
 - [x] 8.1 Discover and adapt the template's actual checked-in Pages workflow filename and base-path wiring; verify production asset URLs under the game repository subpath and keep version.txt as its inspected release source of truth.
-- [ ] 8.2 Complete README setup, controls, original prompt/follow-ups, screenshots, asset provenance and pinned backend/client references; verify every documented command/link and remove unrelated sample gameplay or placeholder claims.
-- [ ] 8.3 Under delivery authorization, commit/push task-only game files on main, run its actual Release and Pages workflows, and verify live two-browser audio/room behavior and displayed release version before reporting a playable URL.
-- [ ] 8.4 Fetch/fast-forward release-generated changes without discarding local work; verify local/remote alignment and report game/backend releases, verification evidence and remaining limits. Finalize OpenSpec only through the subsequently authorized sync/archive workflow.
+- [x] 8.2 Complete README setup, controls, original prompt/follow-ups, screenshots, asset provenance and pinned backend/client references; verify every documented command/link and remove unrelated sample gameplay or placeholder claims.
+- [x] 8.3 Under delivery authorization, commit/push task-only game files on main, run its actual Release and Pages workflows, and verify live two-browser audio/room behavior and displayed release version before reporting a playable URL.
+- [x] 8.4 Fetch/fast-forward release-generated changes without discarding local work; verify local/remote alignment and report game/backend releases, verification evidence and remaining limits. Finalize OpenSpec only through the subsequently authorized sync/archive workflow.

@@ -4,7 +4,7 @@ A tiny shared rhythm machine for **1–4 players**. Eight blue steps, four sound
 
 [Live demo](https://samuelasherrivello.github.io/babylon-lite-music-maker-multiplayer/) · [Multiplayer server](https://github.com/SamuelAsherRivello/rmc-colyseus-multiplayer-server) · [Build brief and UI sketch](openspec/changes/add-multiplayer-pixel-music-sandbox/prompt.md)
 
-The demo is being verified for initial publication; deployment status is recorded in [implementation evidence](docs/music-implementation.md).
+Released as [v0.0.9](https://github.com/SamuelAsherRivello/babylon-lite-music-maker-multiplayer/releases/tag/v0.0.9), with public two-player timing and four-player room checks verified. The relay uses Vercel's free Hobby plan. See [implementation evidence](docs/music-implementation.md) and the [template delivery audit](docs/template-delivery-audit.md).
 
 ![Two players in the pixel music room](docs/music-maker-desktop.png)
 

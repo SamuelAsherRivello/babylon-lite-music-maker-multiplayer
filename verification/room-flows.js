@@ -37,7 +37,7 @@ async (page) => {
   await host.waitForTimeout(500);
   await third.getByRole("textbox").fill(code);
   await third.getByRole("button", { name: "Join room", exact: true }).click();
-  await third.waitForFunction(() => window.__musicDebug.playback.active);
+  await third.waitForFunction(() => window.__musicDebug?.playback?.active);
   await third.waitForFunction(
     (e) =>
       window.__musicDebug.audio.trace.some(
@@ -64,7 +64,7 @@ async (page) => {
     throw Error("Late-join snapshot changed playback deadline");
   const fourth = await join("fourth", true);
   await fourth.getByRole("button", { name: "Enable sound" }).tap();
-  await fourth.waitForFunction(() => window.__musicDebug.playback.active);
+  await fourth.waitForFunction(() => window.__musicDebug?.playback?.active);
   await host.waitForFunction(() => window.__musicDebug.players.length === 4);
   const fifth = await join("fifth");
   await fifth.getByRole("heading", { name: "This room is full" }).waitFor();
