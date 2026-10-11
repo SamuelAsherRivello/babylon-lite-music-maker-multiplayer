@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Skills Unarchive"
+  short_description: "Recover an archived Codex chat"
+  default_prompt: "Use $ai-skills-unarchive to find and restore an archived Codex chat."

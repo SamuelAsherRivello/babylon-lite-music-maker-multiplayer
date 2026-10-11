@@ -6,9 +6,10 @@ import { defineConfig } from "vite";
 const repositoryRoot = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/github-repository-template/",
+  base: "/babylon-lite-music-maker-multiplayer/",
   plugins: [react()],
-  root: "project-name",
+  root: "music-maker",
+  envDir: repositoryRoot,
   server: {
     fs: {
       allow: [repositoryRoot],

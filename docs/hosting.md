@@ -1,0 +1,15 @@
+# Free Vercel relay
+
+Only Vercel's free Hobby plan is permitted for the backend. No paid feature, plan upgrade or alternate provider is part of this game.
+
+Production uses `https://rmc-music-maker.vercel.app`, an isolated Music deployment of the same shared server repository. It registers only `music-maker`; existing games and their release workflows stay separate. The [Music project setup](https://github.com/SamuelAsherRivello/rmc-colyseus-multiplayer-server/actions/runs/38110865021) verified Hobby and Fluid Compute before provisioning, with no paid feature or third-party service. The [v0.9.13 release run](https://github.com/SamuelAsherRivello/rmc-colyseus-multiplayer-server/actions/runs/38110867502) passed full source regressions and public Music probes before promotion. `music-release.yml` and `deploy-music.yml` define its release path; `MUSIC_VERCEL_PROJECT_ID` is a non-secret repository variable.
+
+Vercel's [WebSocket announcement](https://vercel.com/changelog/websocket-support-is-now-in-public-beta) confirms that upgraded connections use Fluid Compute invocation limits. Its [Fluid Compute documentation](https://vercel.com/docs/fluid-compute) specifies a 300-second maximum for Hobby. The checked-in backend exports an upgrade-aware HTTP server with `maxDuration: 300`; its credentialed release workflow exercises real WebSocket clients before promoting production.
+
+Music authority is in the host browser. At 240 seconds it sends each guest a host-only snapshot with a planned renewal signal, deliberately closes the old relay room, recreates the same code and rejoins guests. The musical epoch, ledger, local predictions and pending listener deadlines survive this planned transport change. The relay continues to assign fresh identities; old local origins remain recognized to prevent echoes. The three-second event buffer allows short transport gaps without moving playback deadlines. Taps during the gap remain local immediately and queue for host acceptance when transport resumes. Late events are dropped rather than played as a burst.
+
+The creator's reserved host identity and seat 1 survive socket-arrival order. Bounded SDK attachment retries reuse the reserved seat; planned admission retries preserve each participant's role and stop after 20 seconds. A gap longer than the musical buffer can drop notes even if the connection eventually recovers.
+
+An unexpected host disconnection ends the session. Planned renewal is not host migration or a reconnect grace period. Browser suspension, a deployment, routing to a different process, free quota exhaustion or a renewal longer than the buffer may still interrupt a jam. No durable shared store or cross-instance continuity is claimed. The public verification record must distinguish measured continuity from these limits.
+
+The credentialed backend [Hobby verification run](https://github.com/SamuelAsherRivello/rmc-colyseus-multiplayer-server/actions/runs/38084550878) passed. Its read-only provider API check required billing.plan to equal hobby and confirmed the existing relay project. No plan change or paid feature was enabled.

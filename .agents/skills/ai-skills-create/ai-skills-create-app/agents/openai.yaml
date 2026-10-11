@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Skills Create App"
+  short_description: "Create a non-game React application"
+  default_prompt: "Use $ai-skills-create-app to create a React application from the shared repository template."

@@ -2,7 +2,7 @@
 
 # Node and Vite output.
 node_modules/
-/project-name/dist/
+/music-maker/dist/
 /.agents/artifacts/
 
 # Local configuration. Commit examples only, never credentials.
@@ -10,3 +10,9 @@ node_modules/
 .env.*
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+
+.bootstrap-*/
+.server-work/
+.tools/
+artifacts/
+!.env.example

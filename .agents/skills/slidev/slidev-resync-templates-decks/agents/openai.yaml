@@ -1,0 +1,3 @@
+interface:
+  display_name: "Slidev Resync Templates Decks"
+  short_description: "Audit and safely resync Slidev mappings"

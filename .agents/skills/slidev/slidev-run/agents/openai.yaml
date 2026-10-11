@@ -1,0 +1,3 @@
+interface:
+  display_name: "Slidev Run"
+  short_description: "Run and verify the local Slidev landing page"

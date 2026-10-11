@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slidev Layout Across Deck Slides"
+  short_description: "Sync Slidev image layouts with Playwright QA"
+  default_prompt: "Use $slidev-sync-layout-across-deck-slides across slides 10, 11, and 12; keep image text position and scale matching."

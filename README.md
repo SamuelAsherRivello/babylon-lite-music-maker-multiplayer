@@ -1,160 +1,72 @@
-<!-- AI: Keep commands rooted at the repository. The Vite application, source, tests, and build output belong in project-name/. Work within the following HTML template -->
-<a href="docs/samuel-asher-rivello-banner.png"><img src="docs/samuel-asher-rivello-banner.png" width="640" alt="Banner" /></a>
-<BR>
+# Music Maker Multiplayer
 
-# {project-name}
+A tiny shared rhythm machine for **1–4 players**. Eight blue steps, four sounds, and an endlessly repeating clock.
 
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
+[Live demo](https://samuelasherrivello.github.io/babylon-lite-music-maker-multiplayer/) · [Multiplayer server](https://github.com/SamuelAsherRivello/rmc-colyseus-multiplayer-server) · [Build brief and UI sketch](openspec/changes/add-multiplayer-pixel-music-sandbox/prompt.md)
 
-<!-- AI: Update this project summary when the template is used. -->
-This is the project repo....
+The demo is being verified for initial publication; deployment status is recorded in [implementation evidence](docs/music-implementation.md).
+
+![Two players in the pixel music room](docs/music-maker-desktop.png)
+
+## Play
+
+Create a room, then copy its invite or share the four-character code. The server assigns each player a number, fictional name and color. The host can play alone; friends can join the running clock.
+
+Click/tap **Kick, Snare, Hi-hat, Tone**, or press **1–4**. Each tap plays once on the next half-second step. Repeated taps of one pad before that step collapse into one sound; different pads combine. These are one-shots, not a recorded repeating pattern. Eight steps take four seconds.
+
+You hear your own sound on the next step. Everyone else hears it **exactly three seconds after that source deadline**, including the host listening to guests. The blue cursor shows the shared live step; the dotted amber marker shows the remote source six steps behind it. The remote buffer fills for the first three seconds.
+
+Invite links join automatically. Select **Enable sound** when needed for browser autoplay. Settings provides local mute and fullscreen. `?mute=true` silences all sound for testing. Leaving or losing the host ends the jam; create a new room to play again. Guests can rejoin with a fresh identity while the host is connected.
+
+## Run locally
+
+Use Node.js 24 and npm:
+
+```sh
+npm ci
+npm run dev -- --host 127.0.0.1
+npm test
+npm run build
+npm run preview
+```
+
+Open the URL Vite prints, under `/babylon-lite-music-maker-multiplayer/`. The application root is `music-maker/`; run commands from the repository root. Production uses the public Vercel relay. For a local backend, copy `.env.example` to `.env.local` and start the shared server separately. No credentials belong in the browser configuration.
+
+## Browser and hosting
+
+Use a current WebGPU-capable browser/device, such as accelerated Edge or Chrome. The original pixel scene uses Babylon Lite, a fixed 640×360 raster, a fixed camera and nearest-neighbor scaling. Landscape is intended; portrait devices show a rotation hint. Integer display scales preserve uniform pixel sizes; fractional fits may have uneven physical pixel widths. Unsupported WebGPU displays an explicit message.
+
+The backend runs on **Vercel's free Hobby plan**, at [the dedicated Music endpoint](https://rmc-music-maker.vercel.app/api/health). The host owns music simulation; the server is a private-room relay. Planned connection renewal before the free plan's five-minute limit retains the host's clock and buffered event deadlines. Unexpected host loss ends the session. See [hosting behavior and limits](docs/hosting.md). Browser suspension, free quota exhaustion, deployment or cross-instance routing can interrupt a jam. No durable account, saved music, host migration or unlimited hosting guarantee is claimed.
 
 ## Original AI Prompt
 
-<!-- AI: Populate with the the earliest substantive user prompt that started this project. Replace the placeholder within the <details> below with the original prompt text. -->
+Original conversation URL: **unverified; not supplied**. [Preserved request excerpt and labeled follow-ups](docs/original-request.md).
 
 <details>
-<summary>Read the full original prompt</summary>
+<summary>Original abstract game request (verbatim excerpt)</summary>
 
 ```text
-
-Create a new project from this template.
-
-Type: {App | Game}
-Orientation: {Portrait | Landscape}
-
-Project description:
-{Describe the app or game, including its core purpose and important features.}
-
-For games:
-Rendering: {2D Pixel Perfect | 3D}
-
+So it's an abstract idea, and I want the first version of it to be complete but very simple. The idea is that up to four players can join. There's a player list on the side that has their number and their randomly generated name, which the multiplayer server does. And then there's a timeline horizontally down the middle of the screen that has four circles. And to a certain beat, like every... every one second. No, let's make it eight. And every half a second, one of them pulses in shape, gets a little larger temporarily. The color goes from blue to bright blue, and you play a little beep, like beep, beep, beep, a little beep noise. And the idea is that either player can... they each have four buttons in front of them, not the ones I mentioned, but other ones, and they can press them, and no matter when they press them, you play the sound for both players on the next full beat.
 ```
+
+Consequential follow-up, verbatim:
+
+```text
+we use only a relay server so the host simulates for all
+
+No if the local player taps the sound it always plays on the very next 8th. but the REMOTE people hear it on that same beat but 3 seconds later.
+
+you are required to use the free plan of vercel. stop asking for alternatives
+```
+
+The initiating message used a dungeon-game template as a starting structure. The selected game is the clarified music sandbox; dungeon mechanics and reference assets were discarded. Interview interpretations and implementation choices are labeled separately in the linked brief.
 
 </details>
 
-## Live Demo
+## Credits and development
 
-<!-- AI: Keep exactly one bullet containing the demo link and no other visible text. Do not mention releases or add other text here. Keep this one link updated to the latest release URL. -->
+Original procedural pixel atlas, interface and synthesized kick/snare/hi-hat/tone/metronome sounds were created for this project. No external game artwork, sampled music or fonts are required. Uses [Babylon Lite](https://github.com/BabylonJS/Babylon-Lite), React and Vite; dependency licenses remain with their authors.
 
-- [{live-demo-url}](https://samuelasherrivello.github.io/github-repository-template/)
+Created through [GitHub Repository Template](https://github.com/SamuelAsherRivello/github-repository-template), with ordinary files imported from [AI Skills Library](https://github.com/SamuelAsherRivello/ai-skills-library). Source revisions, tooling and verification evidence are recorded in [music-implementation.md](docs/music-implementation.md). The backend/shared-client [v0.9.13 release](https://github.com/SamuelAsherRivello/rmc-colyseus-multiplayer-server/releases/tag/v0.9.13) is pinned by its exact tarball URL and integrity in package.json and package-lock.json.
 
-
-## Images
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. Work within the following HTML template -->
-
-<a href="docs/screenshot01.png"><img src="docs/screenshot01.png" width="640" alt="Screenshot placeholder" /></a>
-
-## Table of Contents
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-<!-- AI: Do not include anything above the Table of Contents within the Table of Contents. -->
-1. [Getting Started](#getting-started)
-2. [Project Details](#project-details)
-3. [Deep Dive](#deep-dive)
-4. [Credits](#credits)
-
-## Getting Started
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-<!-- AI: Update this getting-started summary when the template is used. -->
-This is the getting started...
-
-### 🛠 Build Project
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-1. From the repository root, run `npm install`.
-2. Run `npm run build`.
-
-### 🛠 Run Project
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-1. From the repository root, run `npm run dev` and open the localhost URL Vite prints.
-2. Run `npm test` to execute the focused source checks.
-
-### 🛠 Release Version
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-1. Run `npm test` and `npm run build` from the repository root.
-2. Push to `main` to deploy through the GitHub Pages workflow.
-3. Run the **Release** workflow from GitHub Actions to bump the patch version, tag it, and create the GitHub release.
-
-## Project Details
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-<!-- AI: Update these project details when the template is used. -->
-This is the project details...
-
-### 🤖 AI
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-- [AI Overview](docs/ai-overview.md) describes the built-in and optional AI
-  resources.
-
-### 🧠 Deep Dive
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-- [Deep Dive Overview](docs/deep-dive-overview.md) summarizes the project's
-  technical details for developers.
-
-### 📦 Packages
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-- [Vite](https://vite.dev/) provides local development and production builds.
-
-### 📝 Structure
-
-<!-- AI: Keep this section to exactly four bullet points. -->
-
-- `docs/` contains canonical README images and project documentation assets.
-- [Layout and game integration](docs/layout-and-game-integration.md) documents viewport configuration, the implemented Babylon Lite showcase, and guidance for adapting the content layer to a game or app.
-- `project-name/index.html` mounts the React browser surface; `project-name/src/` contains viewport, gutter, content, and UI composition.
-- `project-name/test/` contains focused automated checks for the starter.
-
-## Deep Dive
-
-<!-- AI: This is where you want to have one page about the technical details of the project for a developer audience to get a high-level overview of the key three classes and contracts. -->
-
-- To learn more about the technical details, check out the [Deep Dive](docs/deep-dive-overview.md).
-
-## Credits
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-<!-- AI: Preserve established attribution and ownership. Customize the following subsections only from confirmed contributor, contact, and license information; do not infer a new owner from the repository name. -->
-### 💡 Contributors
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-<!-- AI: Preserve existing contributor credit and add contributors only when confirmed. Do not automatically advance experience counts or their reference year. -->
-- Samuel Asher Rivello - Over 25 years of game development XP (2026)
-
-### 💡 Contact
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-<!-- AI: Preserve confirmed contact destinations and their order unless requested otherwise. Use readable display URLs without a protocol or trailing slash while keeping the real link target intact. Do not invent accounts or change target capitalization based on display styling. -->
-- [LinkedIn.com/in/SamuelAsherRivello](https://Linkedin.com/in/SamuelAsherRivello) ⭐ 
-- [GitHub.com/SamuelAsherRivello](https://github.com/SamuelAsherRivello/)
-- [Twitter.com/srivello](https://twitter.com/srivello/)
-- Resume / Portfolio: [SamuelAsherRivello.com](http://www.SamuelAsherRivello.com)
-
-
-### 💡 License
-
-<!-- AI: Do not add more than one sentence of introductory text at the top of this section. -->
-
-<!-- AI: Keep the license name linked to the actual relative license file and verify that its terms match this statement. Keep the copyright holder and year consistent with that file. Do not change license terms, ownership, or dates without an explicit request. -->
-- Provided as-is under the [MIT License](LICENSE).
-
-- Copyright © 2026 Rivello Multimedia Consulting, LLC.
+GitHub Actions `release.yml` bumps `version.txt` and publishes the tag. `deploy-pages.yml` tests, builds and deploys the game to Pages. Release-generated commits are synchronized back to the local checkout.

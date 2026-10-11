@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Skills Release Version"
+  short_description: "Release from version.txt and GitHub Actions"
+  default_prompt: "Use $ai-skills-release-version to release this repository through its checked-in version workflow."

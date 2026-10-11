@@ -1,25 +1,45 @@
 schema: spec-driven
 context: |
-  Repository: github-repository-template, a reusable browser app/game template.
-  React and React DOM run through Vite with its React plugin. The repository
-  root is the npm root; project-name/ is the Vite application/source/test root.
-  Shared layout uses CSS pixels and a project-defined aspect-ratio viewport.
-  No game renderer is installed; engine guidance is comments/documentation only.
-  Add no runtime dependency without a concrete project requirement.
-  Preserve protected external links, version.txt sourcing, and fullscreen storage.
-  Commands from the repository root: npm ci, npm run dev, npm test, npm run build.
-  GitHub Pages uses /github-repository-template/ and project-name/dist/.
-  Canonical project documentation assets live in docs/.
-  The template preserves only .agents/skills/.openspec-target; do not bundle
-  or hand-edit generated OpenSpec skills. Do not create a PR unless requested.
-rules:
-  proposal:
-    - Mark unresolved decisions clearly; recommendations are not approvals.
-    - State the affected user behavior and acceptance criteria.
-  design:
-    - Describe only architecture and technologies verified for this project.
-    - Preserve explicit boundaries between application layers or packages.
-  tasks:
-    - Keep planning, implementation, and verification tasks explicit.
-    - Include focused checks appropriate to the implemented change.
+  Greenfield Music Maker Multiplayer, planned here before template import.
+  User authorized artifact updates, implementation, repository creation, releases and deployment.
+  Up to four humans; host may play alone. Eight repeating steps at 500 ms each.
+  Four instruments: kick, snare, hi-hat and synth tone. Each distinct sound queues
+  once for the next step and plays once locally; every remote listener hears that
+  event three seconds after its source deadline, including host listening to guest.
+  Relay-only Colyseus backend; host browser owns musical simulation.
+  Required repository template, shared skills library, Babylon Lite pixel-perfect
+  2D landscape presentation. No inherited dungeon or combat mechanics.
+  Host loss ends the session; cancel audio and offer create/join again. All players share a live cursor plus a remote source-step marker.
+  Preserve planning files during template import and follow default-branch policy.
+
+# Project context (optional)
+# Add only constraints that should guide OpenSpec artifacts and workflows.
+# Include constraints an agent cannot infer by reading the code.
+# Keep general project documentation and discoverable codebase facts out.
+# Example:
+#   context: |
+#     Designs and tasks must cover Windows, macOS, and Linux
+#     Write all artifacts in Spanish
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always state what is out of scope
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
 
